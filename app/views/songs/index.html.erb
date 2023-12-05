@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all songs
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new song
+    </h2>
+
+    <form action="/insert_song" method="post">
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title">
+      </div>
+
+      <div>
+        <label for="artist_name_box">
+          Artist name
+        </label>
+
+        <input type="text" id="artist_name_box" name="query_artist_name">
+      </div>
+
+      <button>
+        Create song
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Artist name
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_songs.each do |a_song| %>
+      <tr>
+        <td>
+          <%= a_song.id %>
+        </td>
+
+        <td>
+          <%= a_song.title %>
+        </td>
+
+        <td>
+          <%= a_song.artist_name %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_song.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_song.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/songs/<%= a_song.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
