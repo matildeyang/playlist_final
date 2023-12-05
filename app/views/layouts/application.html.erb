@@ -12,13 +12,13 @@
 
   <body>
     <div><a href="/songs">All songs</a></div>
-    <div><a href="/favorites">Potential favorites</a></div>
     <% if current_user == nil %>
       <div><a href="/users/sign_up"> Sign up </a></div>
       <a href="/users/sign_in"> Sign in </a></div>
     <% else %>
       <div><a href="/users/edit"> Edit user </a></div>
       <div><a href="/users/sign_out"> Sign out </a></div>
+      <div><a href="/users/<%= current_user.id %>">My profile</a></div>
     <% end %>
     <%= yield %>
   </body>

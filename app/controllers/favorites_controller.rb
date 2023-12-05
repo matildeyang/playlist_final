@@ -19,8 +19,7 @@ class FavoritesController < ApplicationController
 
   def create
     the_favorite = Favorite.new
-    the_favorite.song.artist_name = params.fetch("query_user_email")
-    the_favorite.song.title = params.fetch("query_song_title")
+    the_favorite.song_id = params.fetch("query_song_id")
 
     if the_favorite.valid?
       the_favorite.save
