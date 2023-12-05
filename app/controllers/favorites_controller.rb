@@ -1,8 +1,8 @@
 class FavoritesController < ApplicationController
   def index
-    matching_favorites = Favorite.all
+    matching_songs = Song.all
 
-    @list_of_favorites = matching_favorites.order({ :created_at => :desc })
+    @list_of_songs = matching_songs.order({ :created_at => :desc })
 
     render({ :template => "favorites/index" })
   end
@@ -19,8 +19,8 @@ class FavoritesController < ApplicationController
 
   def create
     the_favorite = Favorite.new
-    the_favorite.user_id = params.fetch("query_user_id")
-    the_favorite.song_id = params.fetch("query_song_id")
+    the_favorite.user.email = params.fetch("query_user_email")
+    the_favorite.song.title = params.fetch("query_song_title")
 
     if the_favorite.valid?
       the_favorite.save

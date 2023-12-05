@@ -6,4 +6,15 @@ class UsersController < ApplicationController
 
     render({ :template => "users/index" })
   end
+
+  def show 
+    @id = params.fetch("id")
+    @the_user = User.where(id: @id).first
+
+    if @the_user == nil
+      redirect_to("/404")
+    else
+      render(template: "users/show")
+    end
+  end 
 end 

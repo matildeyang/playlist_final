@@ -1,13 +1,14 @@
 <div>
   <div>
     <h1>
-      List of all favorites
+      List of possible favorites
     </h1>
   </div>
 </div>
 
 <hr>
 
+<% if current_user != nil %>
 <div>
   <div>
     <h2>
@@ -37,6 +38,7 @@
     </form>
   </div>
 </div>
+<% end %>
 
 <hr>
 <div>
@@ -48,48 +50,26 @@
         </th>
 
         <th>
-          User
-        </th>
-
-        <th>
           Song
         </th>
 
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
 
         <th>
         </th>
       </tr>
 
-      <% @list_of_favorites.each do |a_favorite| %>
+      <% @list_of_songs.each do |a_song| %>
       <tr>
         <td>
-          <%= a_favorite.id %>
+          <%= a_song.id %>
         </td>
 
         <td>
-          <%= a_favorite.user_id %>
+          <%= a_song.title %>
         </td>
 
         <td>
-          <%= a_favorite.song_id %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_favorite.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_favorite.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/favorites/<%= a_favorite.id %>">
+          <a href="/favorites/<%= a_song.id %>">
             Show details
           </a>
         </td>
