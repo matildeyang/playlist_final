@@ -53,9 +53,10 @@
           Song
         </th>
 
-
         <th>
+          Artist
         </th>
+
       </tr>
 
       <% @list_of_songs.each do |a_song| %>
@@ -69,10 +70,9 @@
         </td>
 
         <td>
-          <a href="/favorites/<%= a_song.id %>">
-            Show details
-          </a>
+          <%= a_song.artist_name %>
         </td>
+
       </tr>
       <% end %>
     </table>

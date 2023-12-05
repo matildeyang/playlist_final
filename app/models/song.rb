@@ -3,6 +3,7 @@
 # Table name: songs
 #
 #  id          :integer          not null, primary key
+#  artist      :string
 #  artist_name :string
 #  title       :string
 #  created_at  :datetime         not null
