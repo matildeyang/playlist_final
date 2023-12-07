@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Song #<%= @the_song.id %> details
+      <%= @the_song.title %> by <%= @the_song.artist_name %>
     </h1>
 
     <div>
@@ -11,12 +11,6 @@
         </a>
       </div>
 
-      <div>
-        <a href="/delete_song/<%= @the_song.id %>">
-          Delete song
-        </a>
-      </div>
-    </div>
 
     <dl>
       <dt>
