@@ -36,6 +36,14 @@
           Show details
         </a>
       </td>
+
+      <td>
+        <form action="/delete_favorite/<%= a_favorite.id %>" method = "get">
+          <button>
+            Remove favorite
+          </button>
+        </form>
+      </td>
     </tr>
   <% end %>
 </table>

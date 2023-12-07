@@ -51,6 +51,6 @@ class FavoritesController < ApplicationController
 
     the_favorite.destroy
 
-    redirect_to("/favorites", { :notice => "Favorite deleted successfully."} )
+    redirect_to("/users/#{current_user.id}", { :notice => "Favorite deleted successfully."} )
   end
 end
