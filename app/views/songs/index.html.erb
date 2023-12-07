@@ -81,13 +81,17 @@
 
         <td>
           <% if current_user != nil %>
+            <% if current_user.favorites.where(:song_id => a_song.id).at(0).nil? %>
               <div>
-                <div>
-                    <button>
-                      Add to favorites
-                    </button>
-              </div>
-            </td>
+                      <form action="/insert_favorite/<%= a_song.id %>" method="post">
+                        <button>
+                          Add to favorites
+                        </button>
+                      </form>
+                </div>
+            <% else %>
+              <div> Already added! </div>
+            <% end %>    
           <% end %>
         </td>
 

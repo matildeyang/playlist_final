@@ -19,13 +19,14 @@ class FavoritesController < ApplicationController
 
   def create
     the_favorite = Favorite.new
-    the_favorite.song_id = params.fetch("query_song_id")
+    the_favorite.song_id = params.fetch("song_id")
+    the_favorite.user_id = current_user.id
 
     if the_favorite.valid?
       the_favorite.save
-      redirect_to("/songs", { :notice => "Favorite created successfully." })
+      redirect_to("/users/#{current_user.id}", { :notice => "Favorite created successfully." })
     else
-      redirect_to("/favorites", { :alert => the_favorite.errors.full_messages.to_sentence })
+      redirect_to("/songs", { :alert => the_favorite.errors.full_messages.to_sentence })
     end
   end
 
